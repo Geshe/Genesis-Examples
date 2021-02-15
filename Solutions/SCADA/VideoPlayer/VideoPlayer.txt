@@ -1,0 +1,15 @@
+﻿基于OpenCvSharp组件开发视频播放器演示
+========================================
+
+文件
+----------------------------------------
+所有例子文件命名规则：<功能名>.<语言>.gpj。默认语言为中文，即不带语言标识的为中文版。
+
+VideoPlayer.gpj  - 基于OpenCvSharp组件开发视频播放器
+
+
+运行
+----------------------------------------
+本例子不自带运行所需要的动态库OpenCvSharpExtern.dll和opencv_videoio_ffmpeg451.dll，
+请自行到https://github.com/shimat/opencvsharp下载4.5.1版本的Windows库，
+然后分别拷贝到DLL\x64和DLL\x86目录下即可。

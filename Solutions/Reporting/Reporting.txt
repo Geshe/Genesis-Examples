@@ -1,0 +1,16 @@
+﻿报表设计器和报表浏览器控件演示
+========================================
+
+文件
+----------------------------------------
+
+Reporting.gpj    - 报表浏览器控件演示项目 - 中文
+NWind.db         - 报表演示所需的Sqlite数据库
+*.repx           - 报表设计文件，可以用报表设计器打开和编辑
+
+运行
+----------------------------------------
+参考《Reporting.pdf》
+
+报表设计器的使用帮助：
+https://devexpress.github.io/dotnet-eud/interface-elements-for-desktop/articles/report-designer/report-designer-for-wpf.html

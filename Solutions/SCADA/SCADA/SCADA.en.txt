@@ -1,0 +1,17 @@
+﻿SCADA Demo
+========================================
+
+File Brief
+----------------------------------------
+Naming rules for all sample files：<Function Name>.<Language>.gpj.The default language is Chinese without a language identifier.
+
+SCADA.gpj    - Demonstration project of data acquisition and monitoring - Chinese  - Serial Port Version
+SCADA.en.gpj - Demonstration project of data acquisition and monitoring - Engilish - Serial Port Version
+
+SCADA.Net.gpj    - Demonstration project of data acquisition and monitoring - Chinese  - Network Version
+SCADA.Net.en.gpj - Demonstration project of data acquisition and monitoring - Engilish - Network Version
+
+
+Run Demos
+----------------------------------------
+Refer to SCADA.pdf.

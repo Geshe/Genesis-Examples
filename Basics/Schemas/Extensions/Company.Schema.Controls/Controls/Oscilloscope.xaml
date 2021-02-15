@@ -1,0 +1,351 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
+            xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+            xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:local="clr-namespace:Company.Schema.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Company.Schema.Controls;component/Themes/Common.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="{x:Type local:Oscilloscope}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Oscilloscope}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}">
+                        <Grid>
+                            <Grid.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFCBCED4" Offset="0" />
+                                    <GradientStop Color="#FFE7E8EB" Offset="1" />
+                                </LinearGradientBrush>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="6*" MinHeight="40" />
+                                <RowDefinition Height="405" />
+                                <RowDefinition Height="4*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="870" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="1"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="0,7,0,0"
+                   Text="Digital Oscilloscope"
+                   FontSize="22"
+                   Foreground="#FF484E5A" />
+                            <local:OscilloscopeBackgroundControl Grid.ColumnSpan="3" Grid.Row="1" />
+                            <Grid Height="380" Width="760" Grid.Row="1" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="360" />
+                                    <ColumnDefinition Width="130" />
+                                    <ColumnDefinition Width="130" />
+                                    <ColumnDefinition Width="130" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <dxc:ChartControl Grid.RowSpan="2" Background="Transparent" BorderBrush="Transparent" CrosshairEnabled="False" ToolTipEnabled="False">
+                                    <dxc:ChartControl.Diagram>
+                                        <dxc:XYDiagram2D Margin="15,0,-6,28">
+                                            <dxc:XYDiagram2D.DefaultPane>
+                                                <dxc:Pane DomainBrush="Transparent" />
+                                            </dxc:XYDiagram2D.DefaultPane>
+                                            <dxc:XYDiagram2D.SecondaryAxesX>
+                                                <dxc:SecondaryAxisX2D x:Name="gridAxisX" Visible="False">
+                                                    <dxc:SecondaryAxisX2D.Range>
+                                                        <dxc:AxisRange MaxValue="4" MinValue="0" />
+                                                    </dxc:SecondaryAxisX2D.Range>
+                                                </dxc:SecondaryAxisX2D>
+                                            </dxc:XYDiagram2D.SecondaryAxesX>
+                                            <dxc:XYDiagram2D.SecondaryAxesY>
+                                                <dxc:SecondaryAxisY2D x:Name="gridAxisY" Visible="False">
+                                                    <dxc:SecondaryAxisY2D.Range>
+                                                        <dxc:AxisRange MaxValue="4" MinValue="0" />
+                                                    </dxc:SecondaryAxisY2D.Range>
+                                                </dxc:SecondaryAxisY2D>
+                                            </dxc:XYDiagram2D.SecondaryAxesY>
+                                            <dxc:XYDiagram2D.AxisY>
+                                                <dxc:AxisY2D Visible="False" Interlaced="False" GridLinesVisible="False">
+                                                    <dxc:AxisY2D.ConstantLinesInFront>
+                                                        <dxc:ConstantLine x:Name="сonstantLine" Value="2" Brush="#B2BBFFFF" />
+                                                    </dxc:AxisY2D.ConstantLinesInFront>
+                                                    <dxc:AxisY2D.WholeRange>
+                                                        <dxc:Range x:Name="verticalAxisRange" MinValue="-2.5" MaxValue="2.5" SideMarginsValue="0" />
+                                                    </dxc:AxisY2D.WholeRange>
+                                                </dxc:AxisY2D>
+                                            </dxc:XYDiagram2D.AxisY>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D Visible="False">
+                                                    <dxc:AxisX2D.WholeRange>
+                                                        <dxc:Range x:Name="horizontallAxisRange" MinValue="-4.5" MaxValue="4.5" SideMarginsValue="0" />
+                                                    </dxc:AxisX2D.WholeRange>
+                                                </dxc:AxisX2D>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <dxc:XYDiagram2D.Series>
+                                                <dxc:LineStepSeries2D x:Name="lineStepSeries2D" MarkerVisible="False" ArgumentScaleType="Numerical" Brush="#FF7ED4F9">
+                                                    <dxc:LineStepSeries2D.LineStyle>
+                                                        <dxc:LineStyle Thickness="2" />
+                                                    </dxc:LineStepSeries2D.LineStyle>
+                                                    <dxc:LineStepSeries2D.Label>
+                                                        <dxc:SeriesLabel Visible="False" />
+                                                    </dxc:LineStepSeries2D.Label>
+                                                </dxc:LineStepSeries2D>
+                                            </dxc:XYDiagram2D.Series>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl.Diagram>
+                                </dxc:ChartControl>
+                                <dxga:CircularGaugeControl Grid.Column="1" x:Name="circularGauge1"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center"
+                                       Width="96"
+                                       Height="96"
+                                       Margin="0,0,0,30">
+                                    <dxga:CircularGaugeControl.Scales>
+                                        <dxga:ArcScale StartValue="5" EndValue="-5" MajorIntervalCount="1" MinorIntervalCount="24" StartAngle="-230" EndAngle="50" ShowLabels="False">
+                                            <dxga:ArcScale.TickmarksPresentation>
+                                                <dxga:SmartTickmarksPresentation MajorTickBrush="#FF7C8295" MinorTickBrush="#FF7C8295" />
+                                            </dxga:ArcScale.TickmarksPresentation>
+                                            <dxga:ArcScale.Layers>
+                                                <dxga:ArcScaleLayer>
+                                                    <dxga:ArcScaleLayer.Presentation>
+                                                        <dxga:CustomArcScaleLayerPresentation ScaleLayerTemplate="{StaticResource OscilloscopeScaleLayerTemplate}" />
+                                                    </dxga:ArcScaleLayer.Presentation>
+                                                </dxga:ArcScaleLayer>
+                                            </dxga:ArcScale.Layers>
+                                            <dxga:ArcScale.MajorTickmarkOptions>
+                                                <dxga:MajorTickmarkOptions Offset="-2" />
+                                            </dxga:ArcScale.MajorTickmarkOptions>
+                                            <dxga:ArcScale.MinorTickmarkOptions>
+                                                <dxga:MinorTickmarkOptions Offset="-2" />
+                                            </dxga:ArcScale.MinorTickmarkOptions>
+                                            <dxga:ArcScale.Needles>
+                                                <dxga:ArcScaleNeedle x:Name="verticalPositionNeedle" IsInteractive="True">
+                                                    <dxga:ArcScaleNeedle.Options>
+                                                        <dxga:ArcScaleNeedleOptions EndOffset="10" />
+                                                    </dxga:ArcScaleNeedle.Options>
+                                                    <dxga:ArcScaleNeedle.Presentation>
+                                                        <dxga:CustomArcScaleNeedlePresentation NeedleTemplate="{StaticResource OscilloscopeTopNeedleTemplate}" />
+                                                    </dxga:ArcScaleNeedle.Presentation>
+                                                </dxga:ArcScaleNeedle>
+                                            </dxga:ArcScale.Needles>
+                                        </dxga:ArcScale>
+                                    </dxga:CircularGaugeControl.Scales>
+                                </dxga:CircularGaugeControl>
+                                <dxga:CircularGaugeControl Grid.Column="1" x:Name="circularGauge2"
+                                       Grid.Row="1"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center"
+                                       Width="106"
+                                       Height="106"
+                                       Margin="0,0,0,30">
+                                    <dxga:CircularGaugeControl.Model>
+                                        <dxga:CircularCleanWhiteModel />
+                                    </dxga:CircularGaugeControl.Model>
+                                    <dxga:CircularGaugeControl.Scales>
+                                        <dxga:ArcScale StartValue="1"
+                                   EndValue="10"
+                                   StartAngle="-230"
+                                   EndAngle="50"
+                                   MajorIntervalCount="1"
+                                   MinorIntervalCount="24"
+                                   ShowLabels="False"
+                                   ShowSpindleCap="False">
+                                            <dxga:ArcScale.Layers>
+                                                <dxga:ArcScaleLayer>
+                                                    <dxga:ArcScaleLayer.Presentation>
+                                                        <dxga:CustomArcScaleLayerPresentation ScaleLayerTemplate="{StaticResource OscilloscopeScaleLayerTemplate}" />
+                                                    </dxga:ArcScaleLayer.Presentation>
+                                                </dxga:ArcScaleLayer>
+                                                <dxga:ArcScaleLayer>
+                                                    <dxga:ArcScaleLayer.Presentation>
+                                                        <dxga:CustomArcScaleLayerPresentation ScaleLayerTemplate="{StaticResource OscilloscopeForegroundLayerTemplate}" />
+                                                    </dxga:ArcScaleLayer.Presentation>
+                                                </dxga:ArcScaleLayer>
+                                            </dxga:ArcScale.Layers>
+                                            <dxga:ArcScale.MajorTickmarkOptions>
+                                                <dxga:MajorTickmarkOptions Offset="0" />
+                                            </dxga:ArcScale.MajorTickmarkOptions>
+                                            <dxga:ArcScale.MinorTickmarkOptions>
+                                                <dxga:MinorTickmarkOptions Offset="0" />
+                                            </dxga:ArcScale.MinorTickmarkOptions>
+                                            <dxga:ArcScale.Needles>
+                                                <dxga:ArcScaleNeedle x:Name="verticalSensitivityNeedle"
+                                                 IsInteractive="True"
+                                                 Value="5.5">
+                                                    <dxga:ArcScaleNeedle.Options>
+                                                        <dxga:ArcScaleNeedleOptions EndOffset="15" />
+                                                    </dxga:ArcScaleNeedle.Options>
+                                                    <dxga:ArcScaleNeedle.Presentation>
+                                                        <dxga:CustomArcScaleNeedlePresentation NeedleTemplate="{StaticResource OscilloscopeBottomNeedleTemplate}" />
+                                                    </dxga:ArcScaleNeedle.Presentation>
+                                                </dxga:ArcScaleNeedle>
+                                            </dxga:ArcScale.Needles>
+                                        </dxga:ArcScale>
+                                    </dxga:CircularGaugeControl.Scales>
+                                </dxga:CircularGaugeControl>
+                                <dxga:CircularGaugeControl Grid.Column="2" x:Name="circularGauge3"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center"
+                                       Width="96"
+                                       Height="96"
+                                       Margin="0,0,0,30">
+                                    <dxga:CircularGaugeControl.Scales>
+                                        <dxga:ArcScale StartValue="5" EndValue="-5" MajorIntervalCount="1" MinorIntervalCount="24" StartAngle="-230" EndAngle="50" ShowLabels="False">
+                                            <dxga:ArcScale.Layers>
+                                                <dxga:ArcScaleLayer>
+                                                    <dxga:ArcScaleLayer.Presentation>
+                                                        <dxga:CustomArcScaleLayerPresentation ScaleLayerTemplate="{StaticResource OscilloscopeScaleLayerTemplate}" />
+                                                    </dxga:ArcScaleLayer.Presentation>
+                                                </dxga:ArcScaleLayer>
+                                            </dxga:ArcScale.Layers>
+                                            <dxga:ArcScale.TickmarksPresentation>
+                                                <dxga:SmartTickmarksPresentation MajorTickBrush="#FF7C8295" MinorTickBrush="#FF7C8295" />
+                                            </dxga:ArcScale.TickmarksPresentation>
+                                            <dxga:ArcScale.MajorTickmarkOptions>
+                                                <dxga:MajorTickmarkOptions Offset="-2" />
+                                            </dxga:ArcScale.MajorTickmarkOptions>
+                                            <dxga:ArcScale.MinorTickmarkOptions>
+                                                <dxga:MinorTickmarkOptions Offset="-2" />
+                                            </dxga:ArcScale.MinorTickmarkOptions>
+                                            <dxga:ArcScale.Needles>
+                                                <dxga:ArcScaleNeedle x:Name="horizontallPositionNeedle" IsInteractive="True" Value="0">
+                                                    <dxga:ArcScaleNeedle.Options>
+                                                        <dxga:ArcScaleNeedleOptions EndOffset="10" />
+                                                    </dxga:ArcScaleNeedle.Options>
+                                                    <dxga:ArcScaleNeedle.Presentation>
+                                                        <dxga:CustomArcScaleNeedlePresentation NeedleTemplate="{StaticResource OscilloscopeTopNeedleTemplate}" />
+                                                    </dxga:ArcScaleNeedle.Presentation>
+                                                </dxga:ArcScaleNeedle>
+                                            </dxga:ArcScale.Needles>
+                                        </dxga:ArcScale>
+                                    </dxga:CircularGaugeControl.Scales>
+                                </dxga:CircularGaugeControl>
+                                <dxga:CircularGaugeControl Grid.Row="1" x:Name="circularGauge4"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center"
+                                       Width="106"
+                                       Height="106"
+                                       Margin="0,0,0,30">
+                                    <dxga:CircularGaugeControl.Model>
+                                        <dxga:CircularCleanWhiteModel />
+                                    </dxga:CircularGaugeControl.Model>
+                                    <dxga:CircularGaugeControl.Scales>
+                                        <dxga:ArcScale StartValue="1"
+                                   EndValue="20"
+                                   StartAngle="-230"
+                                   EndAngle="50"
+                                   MajorIntervalCount="1"
+                                   MinorIntervalCount="24"
+                                   ShowLabels="False"
+                                   ShowSpindleCap="False">
+                                            <dxga:ArcScale.Layers>
+                                                <dxga:ArcScaleLayer>
+                                                    <dxga:ArcScaleLayer.Presentation>
+                                                        <dxga:CustomArcScaleLayerPresentation ScaleLayerTemplate="{StaticResource OscilloscopeScaleLayerTemplate}" />
+                                                    </dxga:ArcScaleLayer.Presentation>
+                                                </dxga:ArcScaleLayer>
+                                                <dxga:ArcScaleLayer>
+                                                    <dxga:ArcScaleLayer.Presentation>
+                                                        <dxga:CustomArcScaleLayerPresentation ScaleLayerTemplate="{StaticResource OscilloscopeForegroundLayerTemplate}" />
+                                                    </dxga:ArcScaleLayer.Presentation>
+                                                </dxga:ArcScaleLayer>
+                                            </dxga:ArcScale.Layers>
+                                            <dxga:ArcScale.MajorTickmarkOptions>
+                                                <dxga:MajorTickmarkOptions Offset="0" />
+                                            </dxga:ArcScale.MajorTickmarkOptions>
+                                            <dxga:ArcScale.MinorTickmarkOptions>
+                                                <dxga:MinorTickmarkOptions Offset="0" />
+                                            </dxga:ArcScale.MinorTickmarkOptions>
+                                            <dxga:ArcScale.Needles>
+                                                <dxga:ArcScaleNeedle x:Name="horizontallSensitivityNeedle"
+                                                 IsInteractive="True"
+                                                 Value="10.5">
+                                                    <dxga:ArcScaleNeedle.Options>
+                                                        <dxga:ArcScaleNeedleOptions EndOffset="15" />
+                                                    </dxga:ArcScaleNeedle.Options>
+                                                    <dxga:ArcScaleNeedle.Presentation>
+                                                        <dxga:CustomArcScaleNeedlePresentation NeedleTemplate="{StaticResource OscilloscopeBottomNeedleTemplate}" />
+                                                    </dxga:ArcScaleNeedle.Presentation>
+                                                </dxga:ArcScaleNeedle>
+                                            </dxga:ArcScale.Needles>
+                                        </dxga:ArcScale>
+                                    </dxga:CircularGaugeControl.Scales>
+                                </dxga:CircularGaugeControl>
+                                <dxga:CircularGaugeControl Grid.Column="3" x:Name="circularGauge5"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center"
+                                       Width="96"
+                                       Height="96"
+                                       Margin="0,0,0,30">
+                                    <dxga:CircularGaugeControl.Scales>
+                                        <dxga:ArcScale StartValue="-3" EndValue="3" StartAngle="-230" EndAngle="50" MajorIntervalCount="6" MinorIntervalCount="4" ShowLabels="False">
+                                            <dxga:ArcScale.TickmarksPresentation>
+                                                <dxga:SmartTickmarksPresentation MajorTickBrush="#FF7C8295" MinorTickBrush="#FF7C8295" />
+                                            </dxga:ArcScale.TickmarksPresentation>
+                                            <dxga:ArcScale.Layers>
+                                                <dxga:ArcScaleLayer>
+                                                    <dxga:ArcScaleLayer.Presentation>
+                                                        <dxga:CustomArcScaleLayerPresentation ScaleLayerTemplate="{StaticResource OscilloscopeScaleLayerTemplate}" />
+                                                    </dxga:ArcScaleLayer.Presentation>
+                                                </dxga:ArcScaleLayer>
+                                            </dxga:ArcScale.Layers>
+                                            <dxga:ArcScale.MajorTickmarkOptions>
+                                                <dxga:MajorTickmarkOptions Offset="-2" />
+                                            </dxga:ArcScale.MajorTickmarkOptions>
+                                            <dxga:ArcScale.MinorTickmarkOptions>
+                                                <dxga:MinorTickmarkOptions Offset="-2" />
+                                            </dxga:ArcScale.MinorTickmarkOptions>
+                                            <dxga:ArcScale.Needles>
+                                                <dxga:ArcScaleNeedle x:Name="referenceVoltageNeedle" IsInteractive="True" Value="2">
+                                                    <dxga:ArcScaleNeedle.Options>
+                                                        <dxga:ArcScaleNeedleOptions EndOffset="10" />
+                                                    </dxga:ArcScaleNeedle.Options>
+                                                    <dxga:ArcScaleNeedle.Presentation>
+                                                        <dxga:CustomArcScaleNeedlePresentation NeedleTemplate="{StaticResource OscilloscopeTopNeedleTemplate}" />
+                                                    </dxga:ArcScaleNeedle.Presentation>
+                                                </dxga:ArcScaleNeedle>
+                                            </dxga:ArcScale.Needles>
+                                        </dxga:ArcScale>
+                                    </dxga:CircularGaugeControl.Scales>
+                                </dxga:CircularGaugeControl>
+
+                                <dxe:CheckEdit Grid.Row="1"
+                               Grid.Column="3"
+                               Height="42"
+                               Width="42"
+                               VerticalAlignment="Bottom"
+                               Margin="0,0,0,60"
+                               Style="{StaticResource slope}"
+                               x:Name="enabledSignalUpCheckEdit"
+                               Content="Slope"
+                               IsChecked="False" />
+                            </Grid>
+                            <Popup Name="needleTooltip">
+                                <Popup.AllowsTransparency>True</Popup.AllowsTransparency>
+                                <dxe:TextEdit x:Name="ttContent" IsReadOnly="True" />
+                            </Popup>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+    

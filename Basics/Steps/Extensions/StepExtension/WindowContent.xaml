@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="StepExtensionDLL.WindowContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StepExtensionDLL"
+             mc:Ignorable="d" Width="300"
+             d:DesignWidth="300">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Content="点击测试" Grid.Row="0" Click="Button_Click"/>
+        <TextBlock Name="textBlock" Grid.Row="1" TextWrapping="Wrap" Text="" TextAlignment="Center"/>
+        <DockPanel Grid.Row="2">
+            <Button Name="ButtonOK" Content="确定" Width="80" DockPanel.Dock="Left" Click="ButtonOK_Click"/>
+            <Button Name="ButtonCancel" Content="取消" Width="80" DockPanel.Dock="Left" Margin="10,0,0,0" Click="ButtonCancel_Click"/>
+            <TextBlock DockPanel.Dock="Right"></TextBlock>
+        </DockPanel>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,16 @@
+﻿XModem Protocol File Transfer Demo
+========================================
+
+File Brief
+----------------------------------------
+Naming rules for all sample files：<Function Name>.<Language>.gpj.The default language is Chinese without a language identifier.
+
+XModem.gpj   		 - Demonstration project of Protocol File Transfer (Use Static matching mode) - Chinese  - Serial Port Version
+XModem.Net.gpj   	 - Demonstration project of Protocol File Transfer - Chinese  - UDP Port Version
+XModem.Net.SimpleUI.gpj  - Demonstration project of Protocol File Transfer (Hide toolbar, status bar, project manager, etc. at runtime)  - Chinese  - UDP Port Version
+
+Run Demos
+----------------------------------------
+This example automatically executes the "initialization" sequence at startup time, opens the sending and receiving serial ports with scripts, and runs the "receiver" sequence.
+
+The user can directly operate the "Open File and Send" button of the interface to execute the function.

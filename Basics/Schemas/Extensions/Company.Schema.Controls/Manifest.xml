@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle xmlns="urn:schemas-geshe-com:osgi:bundle" Name="Company.Schema.Controls" SymbolicName="Company.Schema.Controls" Version="1.0.0.0" InitialState="Active">
+  <Runtime>
+    <Assembly Path="bin\Company.Schema.Controls.dll" Share="true" Multiversion="false" />
+    
+  </Runtime>
+</Bundle>

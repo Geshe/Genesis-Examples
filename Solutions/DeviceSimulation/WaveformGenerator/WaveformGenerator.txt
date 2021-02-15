@@ -1,0 +1,120 @@
+﻿波形发生器例子
+========================================
+
+指数衰减正弦波（Exponentially Decaying Sine Wave）: 2*Exp(-T)*Sin(2*PI*2*T)
+
+公式：V*Exp(-t/Tc)*Sin(2*pi*t*Fs)
+其中：
+  Tc – Time Constant in seconds
+  Fs - Sine wave frequency in Hertz
+  V – Signal amplitude in Volts peak
+---------------------------------------------------------------
+
+斜坡（Ramp）: 0.2*T
+
+公式：A*t
+其中： 
+  A – Slope of the ramp in Volts/second.
+---------------------------------------------------------------
+
+指数增长（Rising Exponential）: 1-Exp(-T/(2))
+
+公式：1-Exp(-t/Tc)
+其中： 
+  Tc – Time Constant in seconds.
+---------------------------------------------------------------
+
+指数衰减（Decaying Exponential）: Exp(-T/(2))
+
+公式：Exp(-t/Tc)
+其中： 
+  Tc – Time Constant in seconds.
+---------------------------------------------------------------
+
+正弦波线性振幅扫描（Linear Amplitude Sweep of a Sine Wave）: 0.2*T*Sin(2*PI*T)
+
+公式：(A*t) *Sin(2*pi*t* Fs)
+其中：
+  Fs – Sine Wave frequency in Hertz.
+  A – Slope of the ramp in Volts/second.
+---------------------------------------------------------------
+
+频率调制（Frequency Modulation）: Sin(2*PI*2*T+2*Cos(2*PI*0.4*T))
+
+公式：Sin (2*pi*t*Fc+(FD/FM)*Cos(2*pi*t*FM))
+其中：
+  Fc – Carrier frequency in Hertz.
+  FD – Frequency deviation in Hertz.
+  FM – Modulation frequency in Hertz.
+---------------------------------------------------------------
+
+相位调制（Phase Modulation）: Sin(2*PI*2*2*T+(PI*Sin(2*PI*0.4*T)))
+
+公式：Sin((2*pi*t*Fc+ K*Sin(2*pi*t*FM))
+其中：
+  Fc – Carrier frequency in Hertz.
+  K – Peak phase excursion in radians.
+  FM – Modulation frequency in Hertz.
+---------------------------------------------------------------
+
+线性扫频（Linear Frequency Sweep）: Sin(PI*(2*T+((4.0-1.0)/(10))*T^2))
+
+公式：Sin(pi*(2*t*Fs+((FE-Fs)/Ts)*T^2))
+其中：
+  Fs – Start frequency in Hertz.
+  FE – End frequency in Hertz.
+  Ts – Sweep duration in seconds.
+---------------------------------------------------------------
+
+高斯脉冲（Gaussian Pulse）: Exp(-(0.5)*((T-5)/(1))^2)
+公式：Exp(-(1/2)*((T-TM)/Tσ)^2
+其中：
+  TM – Time location of the mean of the Gaussian pulse.
+  Tσ – Half width point of Gaussian pulse corresponds to the standard deviation σ.
+---------------------------------------------------------------
+
+洛伦兹脉冲（Lorentzian Pulse）: 1/(1+((T-5)/(0.5))^2)
+
+公式：1/(1+((t-5*TD)/(TW))^2)
+其中：
+  TD – Time delay in seconds.
+  TW – Half width point of the Lorentzian pulse at 50% amplitude.
+---------------------------------------------------------------
+
+调幅正弦波（Amplitude Modulated Sine）: Sin(2*PI*2*T)*(1+0.75*Cos(2*PI*0.2*T))
+
+公式：Sin(2*pi*t* Fs) *(1+K*Cos(2*pi*t*FM))
+其中：
+  Fs – Sine wave frequency in Hertz.
+  FM – Modulation frequency in Hertz.
+  K – Modulation index, 0<K<1.
+---------------------------------------------------------------
+
+全波整流正弦波（Full-Wave Rectified Sine）: Abs(Sin(2*PI*T))
+
+公式：Abs(Sin(2*3.141592*Fs*t))
+其中：
+  Fs – Sine wave frequency in Hertz.
+---------------------------------------------------------------
+
+半波整流正弦波（Half-Wave Rectified Sine）: 0.5*(Sin(2*PI*T)+(Abs(Sin(2*PI*T))))
+
+公式：0.5*(Sin(2*3.141592*Fs*t)+(Abs(Sin(2*3.141592*Fs*t))))
+其中：
+  Fs – Sine wave frequency in Hertz.
+
+---------------------------------------------------------------
+
+三角波（Triangular Wave）: 1-Abs((N%10+10)%10-5)/5.0
+
+公式：1-Abs((t%(Ts)+Ts)%(Ts)-Ts/2)/(Ts/2)
+其中：
+  Ts – Wave cycle.
+
+---------------------------------------------------------------
+
+锯齿波（Saw Wave）: ((N)%10+10)%10/10.0
+
+公式：((t)%Ts+Ts)%Ts/Ts
+其中：
+  Ts – Wave cycle.

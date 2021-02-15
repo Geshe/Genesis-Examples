@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle xmlns="urn:schemas-geshe-com:osgi:bundle" Name="Company.Device.UI" SymbolicName="Company.Device.UI" Version="1.0.0.0" InitialState="Active">
+  <Runtime>
+    <Assembly Path="bin\Company.Device.UI.dll" Share="true" Multiversion="false" />
+    <!-- 依赖程序集 -->
+    <Dependency BundleSymbolicName="Company.Device" />
+  </Runtime>
+</Bundle>

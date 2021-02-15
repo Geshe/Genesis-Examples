@@ -1,0 +1,581 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:local="clr-namespace:Company.Schema.Controls">
+    <local:BoolToVisibilityConverter x:Key="boolToVisibilityConverter"/>
+    <Style x:Key="CarControlButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Disabled"/>
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MouseOverState">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="NormalState">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="NormalState">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PressedState">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="NormalState">
+                            <Rectangle RadiusY="7" RadiusX="7" StrokeThickness="1" Margin="0,1,0,0" Fill="#FF3A4252"/>
+                            <Rectangle RadiusY="7" RadiusX="7" StrokeThickness="1" Margin="0,0,0,1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF171A21" Offset="0"/>
+                                        <GradientStop Color="#FF252831" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle RadiusY="6" RadiusX="6" StrokeThickness="1" Margin="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF20242E" Offset="0"/>
+                                        <GradientStop Color="#FF252831" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle RadiusY="5" RadiusX="5" StrokeThickness="1" Margin="2,4,2,2" Fill="#FF14171F"/>
+                            <Rectangle RadiusY="5" RadiusX="5" StrokeThickness="1" Margin="2,4,2,3">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="1,0.5" MappingMode="RelativeToBoundingBox" StartPoint="0,0.5">
+                                        <GradientStop Color="#FF06141E" Offset="0"/>
+                                        <GradientStop Color="#FF06141E" Offset="1"/>
+                                        <GradientStop Color="#FF273E54" Offset="0.496"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Grid Margin="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.5*"/>
+                                    <RowDefinition Height="0.5*"/>
+                                </Grid.RowDefinitions>
+                                <Rectangle RadiusY="5" RadiusX="5" StrokeThickness="1" Margin="0,0,0,2">
+                                    <Rectangle.Fill>
+                                        <RadialGradientBrush Center="0.5,0.003" GradientOrigin="0.5,0.003" RadiusY="1.034" RadiusX="1.363">
+                                            <GradientStop Color="#FF0A141B" Offset="1"/>
+                                            <GradientStop Color="#FF8490A9"/>
+                                        </RadialGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <Rectangle RadiusY="4" RadiusX="4" StrokeThickness="1" Margin="1,6,1,2" Grid.RowSpan="2">
+                                    <Rectangle.Fill>
+                                        <RadialGradientBrush Center="0.5,0.986" GradientOrigin="0.5,0.986" RadiusY="0.975" RadiusX="0.675">
+                                            <GradientStop Color="#FF0A2435" Offset="0"/>
+                                            <GradientStop Color="#FF051017" Offset="1"/>
+                                        </RadialGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <Rectangle RadiusY="4" RadiusX="4" StrokeThickness="1" Margin="1,1,1,0">
+                                    <Rectangle.Fill>
+                                        <RadialGradientBrush Center="0.5,0.003" GradientOrigin="0.5,0.003" RadiusY="1.034" RadiusX="1.363">
+                                            <GradientStop Color="#FF0D1B25" Offset="1"/>
+                                            <GradientStop Color="#FF566174"/>
+                                        </RadialGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                        </Grid>
+                        <Grid x:Name="MouseOverState" Visibility="Collapsed">
+                            <Rectangle RadiusY="7" RadiusX="7" StrokeThickness="1" Margin="0,1,0,0">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.972,0.5" StartPoint="0.057,0.5">
+                                        <GradientStop Color="#FF3A4252" Offset="0"/>
+                                        <GradientStop Color="#FF3A4252" Offset="1"/>
+                                        <GradientStop Color="#FF5A87A0" Offset="0.5"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle RadiusY="7" RadiusX="7" StrokeThickness="1" Margin="0,0,0,1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF171A21" Offset="0"/>
+                                        <GradientStop Color="#FF252831" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle RadiusY="6" RadiusX="6" StrokeThickness="1" Margin="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF20242E" Offset="0"/>
+                                        <GradientStop Color="#FF252831" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle RadiusY="5" RadiusX="5" StrokeThickness="1" Margin="2,4,2,2" Fill="#FF14171F"/>
+                            <Rectangle RadiusY="5" RadiusX="5" StrokeThickness="1" Margin="2,4,2,3">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="1,0.5" MappingMode="RelativeToBoundingBox" StartPoint="0,0.5">
+                                        <GradientStop Color="#FF06141E" Offset="0"/>
+                                        <GradientStop Color="#FF06141E" Offset="1"/>
+                                        <GradientStop Color="#FF3E7A9D" Offset="0.496"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Grid Margin="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.5*"/>
+                                    <RowDefinition Height="0.5*"/>
+                                </Grid.RowDefinitions>
+                                <Rectangle RadiusY="5" RadiusX="5" StrokeThickness="1" Margin="0,0,0,2">
+                                    <Rectangle.Fill>
+                                        <RadialGradientBrush Center="0.5,0.003" GradientOrigin="0.5,0.003" RadiusY="1.034" RadiusX="1.363">
+                                            <GradientStop Color="#FF0A141B" Offset="1"/>
+                                            <GradientStop Color="#FF7893B1"/>
+                                        </RadialGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <Rectangle RadiusY="4" RadiusX="4" StrokeThickness="1" Margin="1,6,1,2" Grid.RowSpan="2">
+                                    <Rectangle.Fill>
+                                        <RadialGradientBrush Center="0.5,0.986" GradientOrigin="0.5,0.986" RadiusY="0.975" RadiusX="0.675">
+                                            <GradientStop Color="#FF224D6A" Offset="0"/>
+                                            <GradientStop Color="#FF051017" Offset="1"/>
+                                        </RadialGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <Rectangle RadiusY="4" RadiusX="4" StrokeThickness="1" Margin="1,1,1,0">
+                                    <Rectangle.Fill>
+                                        <RadialGradientBrush Center="0.5,0.003" GradientOrigin="0.5,0.003" RadiusY="1.034" RadiusX="1.363">
+                                            <GradientStop Color="#FF112939" Offset="1"/>
+                                            <GradientStop Color="#FF3F5F7E"/>
+                                        </RadialGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                        </Grid>
+                        <Grid x:Name="PressedState" Visibility="Collapsed">
+                            <Rectangle RadiusY="7" RadiusX="7" StrokeThickness="1" Margin="0,1,0,0">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.972,0.5" StartPoint="0.057,0.5">
+                                        <GradientStop Color="#FF3A4252" Offset="0"/>
+                                        <GradientStop Color="#FF3A4252" Offset="1"/>
+                                        <GradientStop Color="#FF536D82" Offset="0.5"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle RadiusY="7" RadiusX="7" StrokeThickness="1" Margin="0,0,0,1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF171A21" Offset="0"/>
+                                        <GradientStop Color="#FF252831" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle RadiusY="6" RadiusX="6" StrokeThickness="1" Margin="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF20242E" Offset="0"/>
+                                        <GradientStop Color="#FF252831" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle RadiusY="5" RadiusX="5" StrokeThickness="1" Margin="2,4,2,2" Fill="#FF14171F"/>
+                            <Rectangle RadiusY="5" RadiusX="5" StrokeThickness="1" Margin="2,4,2,3">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="1,0.5" MappingMode="RelativeToBoundingBox" StartPoint="0,0.5">
+                                        <GradientStop Color="#FF06141E" Offset="0"/>
+                                        <GradientStop Color="#FF06141E" Offset="1"/>
+                                        <GradientStop Color="#FF224860" Offset="0.496"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Grid Margin="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.5*"/>
+                                    <RowDefinition Height="0.5*"/>
+                                </Grid.RowDefinitions>
+                                <Rectangle RadiusY="5" RadiusX="5" StrokeThickness="1" Margin="0,0,0,2">
+                                    <Rectangle.Fill>
+                                        <RadialGradientBrush Center="0.5,0.003" GradientOrigin="0.5,0.003" RadiusY="1.034" RadiusX="1.363">
+                                            <GradientStop Color="#FF0A141B" Offset="1"/>
+                                            <GradientStop Color="#FF2A4859"/>
+                                        </RadialGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <Rectangle RadiusY="4" RadiusX="4" StrokeThickness="1" Margin="1,6,1,2" Grid.RowSpan="2">
+                                    <Rectangle.Fill>
+                                        <RadialGradientBrush Center="0.5,0.986" GradientOrigin="0.5,0.986" RadiusY="0.975" RadiusX="0.675">
+                                            <GradientStop Color="#FF132F43" Offset="0"/>
+                                            <GradientStop Color="#FF051017" Offset="1"/>
+                                        </RadialGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <Rectangle RadiusY="4" RadiusX="4" StrokeThickness="1" Margin="1,1,1,0">
+                                    <Rectangle.Fill>
+                                        <RadialGradientBrush Center="0.5,0.003" GradientOrigin="0.5,0.003" RadiusY="1.034" RadiusX="1.363">
+                                            <GradientStop Color="#FF0C1F2C" Offset="1"/>
+                                            <GradientStop Color="#FF172F40"/>
+                                        </RadialGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                        </Grid>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="ElectricDashboardBackground">
+        <Grid>
+            <Rectangle RadiusX="20" RadiusY="20">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9D9686" Offset="0"/>
+                        <GradientStop Color="#FF252121" Offset="1"/>
+                        <GradientStop Color="#FF6D6560" Offset="0.05"/>
+                        <GradientStop Color="#FF3C3737" Offset="0.95"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle RadiusX="19" RadiusY="19" Margin="1">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB8B3A3" Offset="0"/>
+                        <GradientStop Color="#FF292525" Offset="1"/>
+                        <GradientStop Color="#FF786F69" Offset="0.05"/>
+                        <GradientStop Color="#FF423D3D" Offset="0.95"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle RadiusX="15" RadiusY="15" Margin="5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFBAB4AA" Offset="0"/>
+                        <GradientStop Color="#FF605A55" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle RadiusX="14" RadiusY="14" Margin="6">
+                <Rectangle.Fill>
+                    <RadialGradientBrush Center="0.5,0" GradientOrigin="0.5,-0.032" RadiusY="1" RadiusX="2">
+                        <RadialGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="-0.123" CenterX="0.5" ScaleY="1" ScaleX="1"/>
+                                <SkewTransform AngleY="0" AngleX="0" CenterY="-0.123" CenterX="0.5"/>
+                                <RotateTransform Angle="0" CenterY="-0.123" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </RadialGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FF9C958D" Offset="0"/>
+                        <GradientStop Color="#FF423C3D" Offset="1"/>
+                        <GradientStop Color="#FF6C645F" Offset="0.38"/>
+                        <GradientStop Color="#FF625A57" Offset="0.3801"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle RadiusX="14" RadiusY="14" Margin="6" Opacity="0.1">
+                <Rectangle.Fill>
+                    <RadialGradientBrush Center="0.497,-1.249" GradientOrigin="0.497,-1.281" RadiusY="0.466" RadiusX="0.692">
+                        <RadialGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0" CenterX="0.5" ScaleY="1" ScaleX="1"/>
+                                <SkewTransform AngleY="0" AngleX="0" CenterY="0" CenterX="0.5"/>
+                                <RotateTransform Angle="180" CenterY="0" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </RadialGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FF231B1B" Offset="0"/>
+                        <GradientStop Color="#00231B1B" Offset="1"/>
+                        <GradientStop Color="#FF231B1B" Offset="0.9999"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Grid Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.4*"/>
+                </Grid.RowDefinitions>
+                <Rectangle RadiusX="5" RadiusY="5">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF252120" Offset="0"/>
+                            <GradientStop Color="#FF45403E" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle RadiusX="4" RadiusY="4" Margin="1">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF969491" Offset="0"/>
+                            <GradientStop Color="#FFFAF8EB" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle RadiusX="3" RadiusY="3" Margin="2">
+                    <Rectangle.Fill>
+                        <RadialGradientBrush Center="0.5,1" GradientOrigin="0.5,1" RadiusY="1.003">
+                            <GradientStop Color="#FFFFFDF1" Offset="0"/>
+                            <GradientStop Color="#FFE0DDC6" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle RadiusX="3" RadiusY="3" Margin="2">
+                    <Rectangle.Fill>
+                        <RadialGradientBrush Center="0.5,-0.421" GradientOrigin="0.5,-0.421" RadiusY="1.518" RadiusX="1.45">
+                            <GradientStop Color="#FFFFFEF5" Offset="0"/>
+                            <GradientStop Color="#00FFFEF5" Offset="0.67"/>
+                            <GradientStop Color="#4CFFFEF5" Offset="0.6699"/>
+                        </RadialGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+            <Grid Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.4*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ElectricDashboardForeground">
+        <Grid Margin="0,0,0,6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.4*"/>
+            </Grid.RowDefinitions>
+            <Path Stretch="Fill" Fill="#FF45403E" Data="F1 M -179.871,262.634C -166.203,262.634 -154.458,270.86 -149.315,282.631L -210.426,282.631C -205.283,270.86 -193.538,262.634 -179.871,262.634 Z " HorizontalAlignment="Center" Height="15" Margin="0" VerticalAlignment="Bottom" Width="45.84"/>
+            <Path Stretch="Fill" Data="F1 M -179.743,263.967C -166.83,263.967 -155.703,271.617 -150.648,282.631L -208.838,282.631C -203.782,271.617 -192.656,263.967 -179.743,263.967 Z " HorizontalAlignment="Center" Height="14" Margin="0" VerticalAlignment="Bottom" Width="43.65">
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF58514F" Offset="0"/>
+                        <GradientStop Color="#FF564F4E" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path Stretch="Fill" Data="F1 M -177.652,283.964C -164.224,283.964 -152.728,292.236 -147.982,303.962L -207.322,303.962C -202.576,292.236 -191.08,283.964 -177.652,283.964 Z " HorizontalAlignment="Center" Height="15" Margin="0,0,0,-1" VerticalAlignment="Bottom" Width="44.51">
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF58514F" Offset="0"/>
+                        <GradientStop Color="#FF564F4E" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="OscilloscopeScaleLayerTemplate">
+        <Grid RenderTransformOrigin="0.5, 0.5" Width="76" Height="76">
+            <Ellipse Fill="White" Margin="0,1,0,-1" Opacity="0.9"/>
+            <Ellipse Fill="#FFAEB3BE" Margin="0,0,0,1"/>
+            <Ellipse Grid.Column="1" Margin="0,1,0,0">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCBCFD5" Offset="0"/>
+                        <GradientStop Color="#FFF5F6F7" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Path Stretch="Fill" Data="F1 M 798,507C 798,540.137 784.121,567 767,567C 749.879,567 736,540.137 736,507L 798,507 Z " HorizontalAlignment="Center" Height="56.5" Margin="0,0,0,-18.5" VerticalAlignment="Bottom" Width="64">
+                <Path.Fill>
+                    <RadialGradientBrush Center="0.5,0.002" GradientOrigin="0.5,0.002" RadiusY="0.688" RadiusX="0.533">
+                        <GradientStop Color="#FF2D344B" Offset="0"/>
+                        <GradientStop Color="#002D344B" Offset="1"/>
+                        <GradientStop Color="#CC2D344B" Offset="0.8"/>
+                    </RadialGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Ellipse Margin="6">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFBCC0CA" Offset="0"/>
+                        <GradientStop Color="#FF5C6378" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Margin="7">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFAFAFC" Offset="0"/>
+                        <GradientStop Color="#FF9499AB" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Margin="10" Fill="White"/>
+            <Ellipse Margin="10,11,10,10">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE9EBEE" Offset="0"/>
+                        <GradientStop Color="#FFCFD4DA" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="OscilloscopeTopNeedleTemplate">
+        <Grid RenderTransformOrigin="0, 0.5" Width="76" Height="76" Margin="-38,0,0,0">
+            <Ellipse Margin="6" Fill="Transparent"/>
+            <Grid x:Name="Needle" Margin="0">
+                <Ellipse Width="7" Height="7" Fill="#FF1B5D83" HorizontalAlignment="Right" Margin="0,0,15,0"/>
+                <Ellipse Width="5" Height="5" Fill="#FF3286AD" HorizontalAlignment="Right" Margin="0,0,16,0"/>
+                <Path Stretch="Fill" Fill="#FF1A2752" Data="F1 M 830,569.016L 833.004,569.016C 833.001,569.172 833,569.328 833,569.484C 833,569.662 833.001,569.839 833.005,570.016L 830,570.016L 830,569.016 Z M 830.491,563.969L 830.685,562.988L 833.626,563.57C 833.556,563.895 833.491,564.222 833.433,564.551L 830.491,563.969 Z M 832.153,558.138L 832.535,557.214L 835.298,558.356C 835.166,558.661 835.039,558.97 834.917,559.28L 832.153,558.138 Z M 834.938,552.69L 835.494,551.859L 837.989,553.526C 837.799,553.8 837.614,554.077 837.433,554.358L 834.938,552.69 Z M 838.715,547.944L 839.422,547.237L 841.539,549.353C 841.299,549.585 841.063,549.821 840.832,550.061L 838.715,547.944 Z M 843.327,544.011L 844.158,543.454L 845.827,545.948C 845.547,546.129 845.27,546.315 844.997,546.505L 843.327,544.011 Z M 848.636,541.068L 849.56,540.684L 850.703,543.438C 850.393,543.561 850.085,543.689 849.78,543.823L 848.636,541.068 Z M 854.447,539.181L 855.427,538.986L 856.012,541.927C 855.684,541.986 855.357,542.051 855.032,542.122L 854.447,539.181 Z M 860.484,538.5L 861.484,538.5L 861.484,541.488C 861.323,541.486 861.162,541.484 861,541.484C 860.828,541.484 860.656,541.486 860.484,541.489L 860.484,538.5 Z M 866.546,538.981L 867.527,539.175L 866.945,542.117C 866.62,542.046 866.293,541.982 865.964,541.923L 866.546,538.981 Z M 872.391,540.664L 873.315,541.046L 872.176,543.804C 871.871,543.671 871.563,543.543 871.252,543.421L 872.391,540.664 Z M 877.82,543.44L 878.651,543.995L 876.983,546.492C 876.71,546.301 876.433,546.116 876.153,545.935L 877.82,543.44 Z M 882.578,547.237L 883.285,547.944L 881.168,550.061C 880.937,549.821 880.701,549.585 880.461,549.354L 882.578,547.237 Z M 886.491,551.837L 887.048,552.668L 884.553,554.338C 884.373,554.057 884.187,553.78 883.997,553.507L 886.491,551.837 Z M 889.444,557.165L 889.828,558.088L 887.065,559.235C 886.943,558.925 886.815,558.617 886.682,558.312L 889.444,557.165 Z M 891.31,562.962L 891.505,563.942L 888.563,564.528C 888.504,564.199 888.439,563.872 888.369,563.547L 891.31,562.962 Z M 892,569.016L 892,570.016L 888.995,570.016C 888.998,569.839 889,569.662 889,569.484C 889,569.328 888.999,569.172 888.996,569.016L 892,569.016 Z M 891.504,575.03L 891.31,576.011L 888.368,575.429C 888.438,575.104 888.503,574.776 888.561,574.447L 891.504,575.03 Z M 889.836,580.89L 889.454,581.815L 886.677,580.667C 886.811,580.362 886.938,580.054 887.061,579.744L 889.836,580.89 Z M 887.045,586.304L 886.489,587.136L 883.993,585.468C 884.183,585.194 884.369,584.917 884.55,584.637L 887.045,586.304 Z M 883.263,591.078L 882.556,591.785L 880.423,589.652C 880.663,589.421 880.899,589.185 881.131,588.946L 883.263,591.078 Z M 878.648,594.975L 877.817,595.532L 876.147,593.037C 876.428,592.857 876.705,592.671 876.978,592.481L 878.648,594.975 Z M 873.336,597.944L 872.412,598.328L 871.257,595.546C 871.568,595.424 871.876,595.296 872.181,595.163L 873.336,597.944 Z M 867.523,599.794L 866.542,599.989L 865.957,597.047C 866.286,596.988 866.613,596.924 866.938,596.854L 867.523,599.794 Z M 861.484,600.5L 860.484,600.5L 860.484,597.48C 860.656,597.483 860.828,597.484 861,597.484C 861.162,597.484 861.323,597.483 861.484,597.48L 861.484,600.5 Z M 855.485,599.994L 854.504,599.8L 855.086,596.859C 855.411,596.929 855.738,596.993 856.067,597.051L 855.485,599.994 Z M 849.638,598.347L 848.714,597.966L 849.864,595.183C 850.17,595.315 850.478,595.442 850.789,595.564L 849.638,598.347 Z M 844.206,595.546L 843.375,594.991L 845.042,592.495C 845.316,592.685 845.593,592.871 845.873,593.051L 844.206,595.546 Z M 839.444,591.785L 838.737,591.078L 840.869,588.946C 841.101,589.186 841.337,589.421 841.577,589.653L 839.444,591.785 Z M 835.527,587.158L 834.97,586.327L 837.464,584.658C 837.645,584.938 837.831,585.215 838.021,585.488L 835.527,587.158 Z M 832.568,581.865L 832.185,580.941L 834.957,579.79C 835.08,580.1 835.208,580.408 835.342,580.713L 832.568,581.865 Z M 830.696,576.038L 830.501,575.057L 833.443,574.472C 833.502,574.801 833.567,575.128 833.637,575.453L 830.696,576.038 Z " HorizontalAlignment="Center" Height="62" Margin="0" VerticalAlignment="Center" Width="62" Opacity="0.35"/>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="OscilloscopeBottomNeedleTemplate">
+        <Grid RenderTransformOrigin="0, 0.5" Width="76" Height="76" Margin="-38,0,0,0">
+            <Ellipse Margin="6" Fill="Transparent"/>
+            <Grid x:Name="Needle1" Margin="0">
+                <Path Stretch="Fill" Fill="#FF50852A" Data="F1 M 686,458L 694,462L 694,463L 686,467L 686,458 Z " HorizontalAlignment="Right" Height="9" Margin="0,0,11,0" VerticalAlignment="Center" Width="8"/>
+                <Path Stretch="Fill" Fill="#FF84B857" Data="F1 M 687,459.734L 687,465.267L 692.733,462.445L 687,459.734 Z " HorizontalAlignment="Right" Height="5.533" Margin="0,0,12.3,0" VerticalAlignment="Center" Width="5.733"/>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="OscilloscopeForegroundLayerTemplate">
+        <Grid RenderTransformOrigin="0.5, 0.5" Width="76" Height="76">
+            <Ellipse Margin="6"/>
+            <Ellipse Margin="18,18,18,17" Fill="White" Opacity="0.8"/>
+            <Ellipse Margin="18">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF5C6378"/>
+                        <GradientStop Color="#FFC0C2CB" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Margin="19">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE7E9EC"/>
+                        <GradientStop Color="#FFD2D6DC" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Grid>
+    </ControlTemplate>
+    <Style x:Key="slope" TargetType="dxe:CheckEdit">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="dxe:CheckEdit">
+                    <Grid x:Name="power">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver" />
+                                <VisualState x:Name="Pressed" />
+                                <VisualState x:Name="Disabled" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="normal">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="_checked">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked" />
+                                <VisualState x:Name="Indeterminate" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Ellipse Fill="White" Margin="0,0,0,-1" Opacity="0.9"/>
+                        <Ellipse Fill="#FFAEB3BE" Margin="0,0,0,1"/>
+                        <Ellipse Margin="0,1,0,0">
+                            <Ellipse.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFCBCFD5" Offset="0"/>
+                                    <GradientStop Color="#FFF5F6F7" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <Grid x:Name="normal" Margin="6,6,6,4">
+                            <Ellipse Margin="0,2,0,0" >
+                                <Ellipse.Fill>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="#FF5E6579" Offset="0.8"/>
+                                        <GradientStop Color="#005E6579" Offset="1"/>
+                                    </RadialGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Ellipse Margin="0,0,0,2" >
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFBCC0CA" Offset="0"/>
+                                        <GradientStop Color="#FF5C6378" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Ellipse Margin="1,1,1,3" >
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="White" Offset="0"/>
+                                        <GradientStop Color="#FFB0B2C0" Offset="1"/>
+                                        <GradientStop Color="White" Offset="0.5"/>
+                                        <GradientStop Color="#FFB0B2C0" Offset="0.5001"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Ellipse Margin="1,2,1,4">
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFE0E1E4" Offset="0"/>
+                                        <GradientStop Color="#FFCED0D8" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Image HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="None" Source="/Company.Schema.Controls;component/Resources/Images/Arrows.png" Width="16" Height="16"/>
+                        </Grid>
+                        <Grid x:Name="_checked" Margin="6,6,6,4" Opacity="0">
+                            <Ellipse Margin="0,0,0,1" Fill="White"/>
+                            <Ellipse Margin="0,0,0,2">
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFBCC0CA" Offset="1"/>
+                                        <GradientStop Color="#FF5C6378"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Ellipse Margin="1,1,1,3" Fill="#FF9EA1B2"/>
+                            <Ellipse Margin="1,2,1,3">
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFBABBC6" Offset="0"/>
+                                        <GradientStop Color="#FFD2D3DA" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Image HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="None" Source="/Company.Schema.Controls;component/Resources/Images/Arrows.png" Width="16" Height="16"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="Company.Variant.Analytics.ExampleVariantAnalysisEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid" 
+             xmlns:local="clr-namespace:Genesis.Workbench.Variant;assembly=Genesis"
+             xmlns:localUI="clr-namespace:Genesis.Workbench;assembly=Genesis"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <DockPanel  Grid.Row="0" Grid.Column="0" >
+                <dxb:ToolBarControl DockPanel.Dock="Right" Margin="0,0,0,1" AllowQuickCustomization="False" AllowCustomizationMenu="False" ShowBackground="False">
+                    <dxb:BarButtonItem Content="全选" Glyph="/Company.Variant.Analytics;component/Resources/Images/SelectAll_16x16.png" Command="{Binding SelectAllCommand}"/>
+                </dxb:ToolBarControl>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="源变量" Margin="0,0,0,0" />
+            </DockPanel>
+            <dxg:GridControl x:Name="gridControlSrc" Grid.Row="1" Grid.Column="0" ShowBorder="True" SelectionMode="Row" ClipboardCopyMode="ExcludeHeader" Margin="1,1,1,1">
+                <dxg:GridControl.View>
+                    <dxg:TableView x:Name="gridControlViewSrc" AllowEditing="False" AllowColumnFiltering="False" AllowSorting="False" AllowGrouping="False"
+                                VerticalScrollbarVisibility="Auto" HorizontalScrollbarVisibility="Hidden" ShowIndicator="False"
+                                ShowHorizontalLines="False" ShowVerticalLines="False" AllowColumnMoving="False" AllowMoveColumnToDropArea="False"
+                                ShowFocusedRectangle="False" ShowSearchPanelMode="Never" SearchPanelAllowFilter="True"
+                                IsColumnMenuEnabled="False" IsRowCellMenuEnabled="False" SearchPanelHighlightResults="False" 
+                                IsGroupFooterMenuEnabled="False" IsGroupPanelMenuEnabled="False" IsGroupRowMenuEnabled="False" IsTotalSummaryMenuEnabled="False" 
+                                ShowGroupPanel="False" ShowColumnHeaders="False"/>
+                </dxg:GridControl.View>
+                <dxg:GridColumn FieldName="Name" Header="名称" Width="*"/>
+            </dxg:GridControl>
+            
+            <StackPanel Grid.Row="1"  Grid.Column="1" VerticalAlignment="Center" Margin="4,0,4,0">
+                <dxb:ToolBarControl Margin="0" AllowQuickCustomization="False" AllowCustomizationMenu="False" ShowBackground="False" Orientation="Vertical">
+                    <dxb:BarButtonItem Content="右移" Glyph="/Company.Variant.Analytics;component/Resources/Images/MoveRight_16x16.png"  Command="{Binding MoveRightCommand}"/>
+                    <dxb:BarButtonItem Content="左移" Glyph="/Company.Variant.Analytics;component/Resources/Images/MoveLeft_16x16.png"  Command="{Binding MoveLeftCommand}"/>
+                </dxb:ToolBarControl>
+            </StackPanel>
+            <DockPanel  Grid.Row="0" Grid.Column="2" >
+                <dxb:ToolBarControl DockPanel.Dock="Right" Margin="0,0,0,1" AllowQuickCustomization="False" AllowCustomizationMenu="False" ShowBackground="False">
+                    <dxb:BarButtonItem Content="上移" Glyph="/Company.Variant.Analytics;component/Resources/Images/MoveUp_16x16.png"  Command="{Binding MoveUpCommand}"/>
+                    <dxb:BarButtonItem Content="下移" Glyph="/Company.Variant.Analytics;component/Resources/Images/MoveDown_16x16.png"  Command="{Binding MoveDownCommand}"/>
+                    <dxb:BarItemSeparator />
+                    <dxb:BarButtonItem Content="清除" Glyph="/Company.Variant.Analytics;component/Resources/Images/Clear_16x16.png"  Command="{Binding ClearCommand}"/>
+                </dxb:ToolBarControl>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="目标变量" Margin="0,0,0,0" />
+            </DockPanel>
+            <dxg:GridControl x:Name="gridControlDes" Grid.Row="1" Grid.Column="2" ShowBorder="True" SelectionMode="Row" ClipboardCopyMode="ExcludeHeader" Margin="1,1,1,1">
+                <dxg:GridControl.View>
+                    <dxg:TableView x:Name="gridControlViewDes" AllowEditing="False" AllowColumnFiltering="False" AllowSorting="False" AllowGrouping="False"
+                            VerticalScrollbarVisibility="Auto" HorizontalScrollbarVisibility="Hidden" ShowIndicator="False"
+                            ShowHorizontalLines="False" ShowVerticalLines="False" AllowColumnMoving="False" AllowMoveColumnToDropArea="False"
+                            ShowFocusedRectangle="False" ShowSearchPanelMode="Never" SearchPanelAllowFilter="True"
+                            IsColumnMenuEnabled="False" IsRowCellMenuEnabled="False" SearchPanelHighlightResults="False" 
+                            IsGroupFooterMenuEnabled="False" IsGroupPanelMenuEnabled="False" IsGroupRowMenuEnabled="False" IsTotalSummaryMenuEnabled="False" 
+                            ShowGroupPanel="False" ShowColumnHeaders="False"/>
+                </dxg:GridControl.View>
+                <dxg:GridColumn FieldName="Name" Header="名称" Width="*"/>
+            </dxg:GridControl>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="0,2,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <dxb:ToolBarControl Grid.Row="0" Margin="0,0,0,1" AllowQuickCustomization="False" AllowCustomizationMenu="False" ShowBackground="False">
+                <dxb:BarCheckItem x:Name="biShowObjectProperties" Content="模型属性" BarItemDisplayMode="ContentAndGlyph" 
+                              IsChecked="{Binding ShowObjectProperties, Mode=OneWay}"
+                              Glyph="/Company.Variant.Analytics;component/Resources/Images/ObjectProperties_16x16.png"
+                              Command="{Binding ShowObjectPropertiesCommand}"/>
+                <dxb:BarCheckItem x:Name="biShowViewProperties" Content="视图属性"   BarItemDisplayMode="ContentAndGlyph" 
+                              IsChecked="{Binding ShowViewProperties, Mode=OneWay}"
+                              Glyph="/Company.Variant.Analytics;component/Resources/Images/ViewProperties_16x16.png"
+                              Command="{Binding ShowViewPropertiesCommand}"/>
+            </dxb:ToolBarControl>
+            <Grid Grid.Row="1" >
+                <dxprg:PropertyGridControl x:Name="propertyGridControl" Margin="0" ShowProperties="All"   BorderThickness="1"
+                                           ShowCategories="Hidden" ShowDescriptionIn="ToolTip" SortMode="Ascending"
+                                           ShowToolPanel="False" ShowSearchBox="False" ShowMenuButtonInRows="False"
+                                           
+                                           ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                           >
+                </dxprg:PropertyGridControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
