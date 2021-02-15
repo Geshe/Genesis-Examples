@@ -12,6 +12,8 @@
 
 官方网站： http://www.geshe.com/zh-cn/products/ggenesis
 
+![格西测控大师](http://www.geshe.com/images/geshe/products/GGenesis/GGenesis-first.png)
+
 ------------------------------------------------------------------
 # Geshe Measurement and Control Master's Examples
 
@@ -26,4 +28,6 @@ Geshe MC Master provides a unified environment and interface for all different a
 For any measurement and control project that needs to accelerate development, code reuse, performance improvement and automation, such as data acquisition and monitoring system, design verification system, hardware testing system, chip testing system, etc., Geshe MC Master is indispensable.
 
 WebSite: http://www.geshe.com/en/products/ggenesis
+
+![Geshe Measurement and Control Master](http://www.geshe.com/images/geshe/products/GGenesis/en.masthead/GGenesis-first.png)
 
